@@ -16,29 +16,12 @@ const fetchDrinks = async () => {
 
 const DrinksPage = async () => {
   const data = await fetchDrinks();
-  console.log(data);
+  // console.log(data);
   return (
-    <ul className="grid sm:grid-cols-2 gap-6 mt-6">
-      {drinks.map((drink) => (
-        <li key={drink.idDrink}>
-          <Link
-            href={`/drinks/${drink.idDrink}`}
-            className="text-xl font-medium"
-          >
-            <div className="relative h-48 mb-4">
-              <Image
-                src={drink.strDrinkThumb}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
-                alt={drink.strDrink}
-                className="rounded-md object-cover"
-              />
-            </div>
-            {drink.strDrink}
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <div>
+      <h1 className="text-7xl">DrinksPage</h1>
+      <DrinksList drinks={data.drinks} />
+    </div>
   );
 };
 export default DrinksPage;
